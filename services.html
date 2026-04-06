@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Услуги | Косметологическая клиника</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #FDFCFA;
+            font-family: 'Montserrat', sans-serif;
+            color: #2E2E2E;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* ===== ШАПКА ===== */
+        .header {
+            background: rgba(253,252,250,0.96);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #EEE9E3;
+            padding: 18px 0;
+        }
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #2E2E2E;
+            text-decoration: none;
+        }
+        .logo span {
+            color: #C7A07A;
+        }
+        .nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        .nav a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2E2E2E;
+            transition: color 0.2s;
+            font-size: 16px;
+        }
+        .nav a:hover {
+            color: #C7A07A;
+        }
+        .burger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+        .burger span {
+            width: 25px;
+            height: 2px;
+            background-color: #2E2E2E;
+            transition: 0.3s;
+        }
+        @media (max-width: 768px) {
+            .nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: #FDFCFA;
+                flex-direction: column;
+                justify-content: center;
+                gap: 40px;
+                transition: 0.3s;
+                backdrop-filter: blur(10px);
+                z-index: 99;
+            }
+            .nav.active {
+                left: 0;
+            }
+            .burger {
+                display: flex;
+            }
+            .burger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            .burger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .burger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+        }
+        /* Основной контент */
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 500;
+            margin: 50px 0 20px;
+            text-align: center;
+        }
+        .services-full {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin: 40px 0 70px;
+        }
+        .service-item {
+            background: #FFFFFF;
+            border-radius: 24px;
+            width: 280px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            border: 1px solid #F0EDE8;
+            transition: transform 0.3s;
+        }
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+        .service-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        .service-item .price {
+            color: #C7A07A;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .service-item p {
+            color: #6C6C6C;
+            font-size: 14px;
+        }
+        .btn-telegram {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #C7A07A;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            margin: 20px auto 60px;
+            width: fit-content;
+        }
+        .btn-telegram:hover {
+            background: #B0855E;
+            transform: translateY(-2px);
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid #E9E4DD;
+            font-size: 13px;
+            color: #8A8A8A;
+        }
+        @media (max-width: 700px) {
+            .service-item {
+                width: 100%;
+                max-width: 340px;
+            }
+            .page-title {
+                font-size: 36px;
+            }
+        }
+    
+        /* === ГЛОБАЛЬНАЯ АНИМАЦИЯ ПОЯВЛЕНИЯ === */
+/* Исходное состояние — прозрачность и небольшое смещение */
+.hero,
+.mission,
+.gallery,
+.values,
+.services,
+.reviews,
+.footer {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* === АНИМАЦИЯ ПОЯВЛЕНИЯ ДЛЯ ВСЕХ БЛОКОВ === */
+.page-title,
+.services-full .service-item,
+.contacts-grid .contact-card,
+.address-detail,
+.map-container,
+.directions,
+.btn-telegram {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* Когда блок становится видимым (через JS) */
+.page-title.visible,
+.services-full .service-item.visible,
+.contacts-grid .contact-card.visible,
+.address-detail.visible,
+.map-container.visible,
+.directions.visible,
+.btn-telegram.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Дополнительные эффекты при наведении для карточек услуг и контактов */
+.service-item:hover,
+.contact-card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+        </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="container">
+        <a href="index.html" class="logo">Космето<span>логия</span></a>
+        <div class="burger" id="burgerBtn">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="nav" id="navMenu">
+            <a href="index.html">Главная</a>
+            <a href="services.html">Услуги</a>
+            <a href="contacts.html">Контакты</a>
+            <a href="address.html">Адрес</a>
+        </div>
+    </div>
+</div>
+
+<main>
+    <div class="container">
+        <h1 class="page-title">Наши услуги</h1>
+        <div class="services-full">
+            <div class="service-item"><h3>Услуга 1</h3><div class="price">от 5 000 ₽</div><p>Мягкое очищение и увлажнение кожи.</p></div>
+            <div class="service-item"><h3>Услуга 2</h3><div class="price">от 7 500 ₽</div><p>Интенсивное восстановление тонуса.</p></div>
+            <div class="service-item"><h3>Услуга 3</h3><div class="price">от 9 900 ₽</div><p>Разглаживание морщин без эффекта маски.</p></div>
+            <div class="service-item"><h3>Услуга 4</h3><div class="price">от 12 000 ₽</div><p>Глубокое увлажнение гиалуроновой кислотой.</p></div>
+            <div class="service-item"><h3>Услуга 5</h3><div class="price">от 8 500 ₽</div><p>Лазерная шлифовка, выравнивание рельефа.</p></div>
+            <div class="service-item"><h3>Услуга 6</h3><div class="price">от 15 000 ₽</div><p>Комплексный уход для лица и шеи.</p></div>
+            <div class="service-item"><h3>Услуга 7</h3><div class="price">от 11 000 ₽</div><p>Плазмолифтинг — омоложение собственной плазмой.</p></div>
+            <div class="service-item"><h3>Услуга 8</h3><div class="price">от 6 500 ₽</div><p>Химический пилинг для сияния кожи.</p></div>
+            <div class="service-item"><h3>Услуга 9</h3><div class="price">от 18 000 ₽</div><p>Нитевой лифтинг без разрезов.</p></div>
+            <div class="service-item"><h3>Услуга 10</h3><div class="price">от 4 500 ₽</div><p>Чистка лица ультразвуковая.</p></div>
+            <div class="service-item"><h3>Услуга 11</h3><div class="price">от 22 000 ₽</div><p>SMAS-лифтинг (ультразвуковой).</p></div>
+            <div class="service-item"><h3>Услуга 12</h3><div class="price">от 14 000 ₽</div><p>Биорепарация с пептидами.</p></div>
+        </div>
+        <div style="text-align: center;">
+            <a href="https://t.me/ваш_логин" target="_blank" class="btn-telegram">✈️ Записаться в Telegram</a>
+        </div>
+    </div>
+</main>
+
+<div class="footer container">
+    <p>© 2025 Косметологическая клиника — Новосибирск</p>
+    <p style="font-size: 12px; margin-top: 8px;">*Имеются противопоказания, необходима консультация специалиста</p>
+    <p>Дизайн и разработка: Royskey</p>
+</div>
+
+<script>
+    const burger = document.getElementById('burgerBtn');
+    const navMenu = document.getElementById('navMenu');
+    burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+    document.querySelectorAll('.nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            burger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+</script>
+<script>
+    // Анимация появления элементов при скролле
+    const animatedItems = document.querySelectorAll('.page-title, .service-item, .contact-card, .address-detail, .map-container, .directions, .btn-telegram');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // отключаем наблюдение после появления
+            }
+        });
+    }, { threshold: 0.2 });
+    animatedItems.forEach(item => observer.observe(item));
+</script>
+<div style="position: fixed; bottom: 20px; right: 20px; font-size: 22px; font-weight: 500; color: rgba(0,0,0,0.15); background: transparent; padding: 10px; z-index: 1000; font-family: 'Montserrat', sans-serif; letter-spacing: 1px;">
+    Дизайн и разработка: Royskey
+</div>
+</body>
+</html>
