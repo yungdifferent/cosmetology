@@ -22,6 +22,7 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+        /* ===== ШАПКА ===== */
         .header {
             background: rgba(253,252,250,0.96);
             backdrop-filter: blur(8px);
@@ -72,16 +73,31 @@
             .burger.active span:nth-child(2) { opacity: 0; }
             .burger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
         }
+        /* Основной контент */
         .page-title {
             font-family: 'Playfair Display', serif;
             font-size: 48px;
             font-weight: 500;
             margin: 50px 0 20px;
             text-align: center;
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .page-title.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         .address-detail {
             text-align: center;
             margin: 30px 0;
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .address-detail.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         .address-detail p {
             font-size: 20px;
@@ -92,6 +108,13 @@
             border-radius: 28px;
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .map-container.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         .map-container iframe {
             width: 100%;
@@ -104,6 +127,13 @@
             padding: 30px;
             margin: 40px 0;
             border: 1px solid #F0EDE8;
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .directions.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         .directions h3 {
             font-family: 'Playfair Display', serif;
@@ -138,6 +168,13 @@
             transition: all 0.3s;
             margin: 20px auto 60px;
             width: fit-content;
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .btn-telegram.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         .btn-telegram:hover {
             background: #B0855E;
@@ -155,52 +192,6 @@
             .map-container iframe { height: 300px; }
             .directions li { font-size: 14px; }
         }
-    
-        /* === ГЛОБАЛЬНАЯ АНИМАЦИЯ ПОЯВЛЕНИЯ === */
-/* Исходное состояние — прозрачность и небольшое смещение */
-.hero,
-.mission,
-.gallery,
-.values,
-.services,
-.reviews,
-.footer {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-/* === АНИМАЦИЯ ПОЯВЛЕНИЯ ДЛЯ ВСЕХ БЛОКОВ === */
-.page-title,
-.services-full .service-item,
-.contacts-grid .contact-card,
-.address-detail,
-.map-container,
-.directions,
-.btn-telegram {
-    opacity: 0;
-    transform: translateY(25px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-/* Когда блок становится видимым (через JS) */
-.page-title.visible,
-.services-full .service-item.visible,
-.contacts-grid .contact-card.visible,
-.address-detail.visible,
-.map-container.visible,
-.directions.visible,
-.btn-telegram.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Дополнительные эффекты при наведении для карточек услуг и контактов */
-.service-item:hover,
-.contact-card:hover {
-    transform: translateY(-5px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
     </style>
 </head>
 <body>
@@ -248,12 +239,13 @@
 </main>
 
 <div class="footer container">
-    <p>© 2025 Косметологическая клиника — Новосибирск</p>
+    <p>© 2026 Косметологическая клиника — Новосибирск</p>
     <p style="font-size: 12px; margin-top: 8px;">*Имеются противопоказания, необходима консультация специалиста</p>
     <p>Дизайн и разработка: Royskey</p>
 </div>
 
 <script>
+    // Бургер-меню
     const burger = document.getElementById('burgerBtn');
     const navMenu = document.getElementById('navMenu');
     burger.addEventListener('click', () => {
@@ -266,20 +258,21 @@
             navMenu.classList.remove('active');
         });
     });
-</script>
-<script>
+
     // Анимация появления элементов при скролле
-    const animatedItems = document.querySelectorAll('.page-title, .service-item, .contact-card, .address-detail, .map-container, .directions, .btn-telegram');
+    const animatedItems = document.querySelectorAll('.page-title, .address-detail, .map-container, .directions, .btn-telegram');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // отключаем наблюдение после появления
+                observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.2 });
     animatedItems.forEach(item => observer.observe(item));
 </script>
+
+<!-- Водяной знак -->
 <div style="position: fixed; bottom: 20px; right: 20px; font-size: 22px; font-weight: 500; color: rgba(0,0,0,0.15); background: transparent; padding: 10px; z-index: 1000; font-family: 'Montserrat', sans-serif; letter-spacing: 1px;">
     Дизайн и разработка: Royskey
 </div>

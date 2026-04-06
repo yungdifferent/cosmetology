@@ -22,6 +22,7 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+        /* ===== ШАПКА ===== */
         .header {
             background: rgba(253,252,250,0.96);
             backdrop-filter: blur(8px);
@@ -45,12 +46,36 @@
             color: #2E2E2E;
             text-decoration: none;
         }
-        .logo span { color: #C7A07A; }
-        .nav { display: flex; gap: 32px; align-items: center; }
-        .nav a { text-decoration: none; font-weight: 500; color: #2E2E2E; transition: color 0.2s; font-size: 16px; }
-        .nav a:hover { color: #C7A07A; }
-        .burger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
-        .burger span { width: 25px; height: 2px; background-color: #2E2E2E; transition: 0.3s; }
+        .logo span {
+            color: #C7A07A;
+        }
+        .nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        .nav a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2E2E2E;
+            transition: color 0.2s;
+            font-size: 16px;
+        }
+        .nav a:hover {
+            color: #C7A07A;
+        }
+        .burger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+        .burger span {
+            width: 25px;
+            height: 2px;
+            background-color: #2E2E2E;
+            transition: 0.3s;
+        }
         @media (max-width: 768px) {
             .nav {
                 position: fixed;
@@ -66,18 +91,36 @@
                 backdrop-filter: blur(10px);
                 z-index: 99;
             }
-            .nav.active { left: 0; }
-            .burger { display: flex; }
-            .burger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-            .burger.active span:nth-child(2) { opacity: 0; }
-            .burger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+            .nav.active {
+                left: 0;
+            }
+            .burger {
+                display: flex;
+            }
+            .burger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            .burger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .burger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
         }
+        /* Основной контент */
         .page-title {
             font-family: 'Playfair Display', serif;
             font-size: 48px;
             font-weight: 500;
             margin: 50px 0 30px;
             text-align: center;
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .page-title.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         .contacts-grid {
             display: flex;
@@ -94,6 +137,17 @@
             text-align: center;
             border: 1px solid #F0EDE8;
             box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .contact-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.05);
         }
         .contact-icon {
             font-size: 48px;
@@ -128,6 +182,13 @@
             transition: all 0.3s;
             margin: 20px auto 60px;
             width: fit-content;
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .btn-telegram.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         .btn-telegram:hover {
             background: #B0855E;
@@ -141,54 +202,14 @@
             color: #8A8A8A;
         }
         @media (max-width: 700px) {
-            .page-title { font-size: 36px; }
-            .contact-card { width: 100%; max-width: 360px; }
+            .page-title {
+                font-size: 36px;
+            }
+            .contact-card {
+                width: 100%;
+                max-width: 360px;
+            }
         }
-        /* === ГЛОБАЛЬНАЯ АНИМАЦИЯ ПОЯВЛЕНИЯ === */
-/* Исходное состояние — прозрачность и небольшое смещение */
-.hero,
-.mission,
-.gallery,
-.values,
-.services,
-.reviews,
-.footer {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-/* === АНИМАЦИЯ ПОЯВЛЕНИЯ ДЛЯ ВСЕХ БЛОКОВ === */
-.page-title,
-.services-full .service-item,
-.contacts-grid .contact-card,
-.address-detail,
-.map-container,
-.directions,
-.btn-telegram {
-    opacity: 0;
-    transform: translateY(25px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-/* Когда блок становится видимым (через JS) */
-.page-title.visible,
-.services-full .service-item.visible,
-.contacts-grid .contact-card.visible,
-.address-detail.visible,
-.map-container.visible,
-.directions.visible,
-.btn-telegram.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Дополнительные эффекты при наведении для карточек услуг и контактов */
-.service-item:hover,
-.contact-card:hover {
-    transform: translateY(-5px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
     </style>
 </head>
 <body>
@@ -228,7 +249,6 @@
                 <a href="https://t.me/ваш_логин" target="_blank">@ваш_логин</a>
                 <p>Быстрая запись и консультация</p>
             </div>
-            
         </div>
         <div style="text-align: center;">
             <a href="https://t.me/ваш_логин" target="_blank" class="btn-telegram">✈️ Записаться в Telegram</a>
@@ -237,12 +257,13 @@
 </main>
 
 <div class="footer container">
-    <p>© 2025 Косметологическая клиника — Новосибирск</p>
+    <p>© 2026 Косметологическая клиника — Новосибирск</p>
     <p style="font-size: 12px; margin-top: 8px;">*Имеются противопоказания, необходима консультация специалиста</p>
     <p>Дизайн и разработка: Royskey</p>
 </div>
 
 <script>
+    // Бургер-меню
     const burger = document.getElementById('burgerBtn');
     const navMenu = document.getElementById('navMenu');
     burger.addEventListener('click', () => {
@@ -255,20 +276,21 @@
             navMenu.classList.remove('active');
         });
     });
-</script>
-<script>
+
     // Анимация появления элементов при скролле
-    const animatedItems = document.querySelectorAll('.page-title, .service-item, .contact-card, .address-detail, .map-container, .directions, .btn-telegram');
+    const animatedItems = document.querySelectorAll('.page-title, .contact-card, .btn-telegram');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // отключаем наблюдение после появления
+                observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.2 });
     animatedItems.forEach(item => observer.observe(item));
 </script>
+
+<!-- Водяной знак -->
 <div style="position: fixed; bottom: 20px; right: 20px; font-size: 22px; font-weight: 500; color: rgba(0,0,0,0.15); background: transparent; padding: 10px; z-index: 1000; font-family: 'Montserrat', sans-serif; letter-spacing: 1px;">
     Дизайн и разработка: Royskey
 </div>
