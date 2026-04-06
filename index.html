@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Косметологическая клиника | Новосибирск</title>
+    <!-- Премиальные шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FDFCFA; /* светлый, тёплый фон */
+            font-family: 'Montserrat', sans-serif;
+            color: #2E2E2E;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ШАПКА */
+        .header {
+            padding: 25px 0;
+            background: rgba(253,252,250,0.96);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #EEE9E3;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #2E2E2E;
+        }
+        .logo span {
+            color: #C7A07A; /* тёплый акцент */
+        }
+
+        /* ГЛАВНЫЙ ЭКРАН (HERO) */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 50px;
+            padding: 70px 0 50px;
+        }
+        .hero-content {
+            flex: 1;
+        }
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(38px, 6vw, 62px);
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: #1A1A1A;
+        }
+        .hero-title .accent {
+            color: #C7A07A;
+        }
+        .hero-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 35px;
+            max-width: 500px;
+            color: #5A5A5A;
+        }
+        .btn-telegram {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #C7A07A;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(199,160,122,0.2);
+        }
+        .btn-telegram:hover {
+            background: #B0855E;
+            transform: translateY(-2px);
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 30px;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.05);
+        }
+
+        /* Блок преимуществ */
+        .features {
+            padding: 70px 0 40px;
+            text-align: center;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .section-sub {
+            color: #6C6C6C;
+            font-size: 18px;
+            margin-bottom: 50px;
+        }
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+        .feature {
+            max-width: 220px;
+        }
+        .feature-icon {
+            font-size: 44px;
+            margin-bottom: 15px;
+        }
+        .feature h4 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        .feature p {
+            font-size: 14px;
+            color: #6C6C6C;
+        }
+
+        /* Услуги (6 карточек) */
+        .services {
+            padding: 70px 0;
+        }
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .service-card {
+            background: #FFFFFF;
+            border-radius: 24px;
+            width: 300px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            transition: all 0.4s;
+            border: 1px solid #F0EDE8;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease, box-shadow 0.3s;
+        }
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.05);
+        }
+        .service-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .service-info {
+            padding: 20px;
+        }
+        .service-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .service-price {
+            color: #C7A07A;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .service-desc {
+            font-size: 14px;
+            color: #6C6C6C;
+        }
+
+        /* Локация */
+        .location {
+            background: #FFFFFF;
+            border-radius: 48px;
+            padding: 50px 30px;
+            margin: 40px auto;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+        }
+        .location h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+        .address {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        .work-time {
+            color: #C7A07A;
+            font-weight: 500;
+        }
+        .map-placeholder {
+            background: #F3F0EA;
+            height: 180px;
+            border-radius: 28px;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8E7A66;
+        }
+
+        /* Футер */
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid #E9E4DD;
+            font-size: 13px;
+            color: #8A8A8A;
+        }
+
+        @media (max-width: 800px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .section-title {
+                font-size: 32px;
+            }
+            .service-card {
+                width: 100%;
+                max-width: 340px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="container">
+        <div class="logo">Космето<span>логия</span></div>
+    </div>
+</div>
+
+<div class="hero container">
+    <div class="hero-content">
+        <h1 class="hero-title">Ваш - <span class="accent">слоган</span></h1>
+        <p class="hero-subtitle">Современная косметология в Новосибирске. Доказанные методики, качественные препараты.</p>
+        <!-- ЗАМЕНИТЕ ССЫЛКУ НА ВАШУ (бот или менеджер) -->
+        <a href="https://t.me/ваш_логин" target="_blank" class="btn-telegram">✈️ Записаться в Telegram</a>
+    </div>
+    <div class="hero-image">
+        <!-- ЗАМЕНИТЕ НА СВОЮ КАРТИНКУ -->
+        <img src="https://images.pexels.com/photos/3757959/pexels-photo-3757959.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Косметология">
+    </div>
+</div>
+
+<div class="features container">
+    <h2 class="section-title">Почему мы</h2>
+    <div class="section-sub">Забота о вас с 2015 года</div>
+    <div class="features-grid">
+        <div class="feature"><div class="feature-icon">🏆</div><h4>Опыт [*] лет</h4><p>Врачи-косметологи высшей категории</p></div>
+        <div class="feature"><div class="feature-icon">💎</div><h4>Премиум-препараты</h4><p>Сертифицированные средства</p></div>
+        <div class="feature"><div class="feature-icon">📈</div><h4>До/После</h4><p>[количество] довольных пациентов</p></div>
+        <div class="feature"><div class="feature-icon">🕊️</div><h4>Безболезненно</h4><p>Процедуры с комфортом</p></div>
+    </div>
+</div>
+
+<div class="services container">
+    <h2 class="section-title">Наши процедуры</h2>
+    <div class="section-sub">Выберите идеальный вариант для себя</div>
+    <div class="services-grid">
+        <!-- Услуга 1 -->
+        <div class="service-card" data-animate>
+            <img class="service-img" src="https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Услуга 1">
+            <div class="service-info">
+                <div class="service-name">Услуга 1</div>
+                <div class="service-price">От [сумма] ₽</div>
+                <div class="service-desc">Описание услуги.</div>
+            </div>
+        </div>
+        <!-- Услуга 2 -->
+        <div class="service-card" data-animate>
+            <img class="service-img" src="https://images.pexels.com/photos/3997968/pexels-photo-3997968.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Услуга 2">
+            <div class="service-info">
+                <div class="service-name">Услуга 2</div>
+                <div class="service-price">От [сумма] ₽</div>
+                <div class="service-desc">Описание услуги.</div>
+            </div>
+        </div>
+        <!-- Услуга 3 -->
+        <div class="service-card" data-animate>
+            <img class="service-img" src="https://images.pexels.com/photos/3825535/pexels-photo-3825535.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Услуга 3">
+            <div class="service-info">
+                <div class="service-name">Услуга 3</div>
+                <div class="service-price">От [сумма] ₽</div>
+                <div class="service-desc">Описание услуги.</div>
+            </div>
+        </div>
+        <!-- Услуга 4 -->
+        <div class="service-card" data-animate>
+            <img class="service-img" src="https://images.pexels.com/photos/3757959/pexels-photo-3757959.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Услуга 4">
+            <div class="service-info">
+                <div class="service-name">Услуга 4</div>
+                <div class="service-price">От [сумма] ₽</div>
+                <div class="service-desc">Описание услуги.</div>
+            </div>
+        </div>
+        <!-- Услуга 5 -->
+        <div class="service-card" data-animate>
+            <img class="service-img" src="https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Услуга 5">
+            <div class="service-info">
+                <div class="service-name">Услуга 5</div>
+                <div class="service-price">От [сумма] ₽</div>
+                <div class="service-desc">Описание услуги.</div>
+            </div>
+        </div>
+        <!-- Услуга 6 -->
+        <div class="service-card" data-animate>
+            <img class="service-img" src="https://images.pexels.com/photos/3997968/pexels-photo-3997968.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Услуга 6">
+            <div class="service-info">
+                <div class="service-name">Услуга 6</div>
+                <div class="service-price">От [сумма] ₽</div>
+                <div class="service-desc">Описание услуги.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="location container">
+    <h3>Наш адрес</h3>
+    <div class="address">📍 Новосибирск, [адрес]</div>
+    <div class="work-time">🕒 Ежедневно с [время открытия] до [время закрытия]</div>
+    <div class="map-placeholder">
+        🗺️ Здесь будет интерактивная карта
+    </div>
+</div>
+
+<div class="footer container">
+    <p>© 2025 Косметологическая клиника — Новосибирск</p>
+    <p style="font-size: 12px; margin-top: 8px;">Имеются противопоказания, необходима консультация специалиста</p>
+</div>
+
+<script>
+    // Анимация появления при скролле
+    const cards = document.querySelectorAll('[data-animate]');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.2 });
+    cards.forEach(card => observer.observe(card));
+
+    // Если карточки уже видны при загрузке
+    window.addEventListener('load', () => {
+        cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                card.classList.add('visible');
+            }
+        });
+    });
+</script>
+</body>
+</html>
