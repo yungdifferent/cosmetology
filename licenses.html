@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Страница в разработке</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #ffe6f0 0%, #ffd9e8 25%, #ffccde 50%, #ffb8d0 75%, #ffa5c2 100%);
+            background-size: 300% 300%;
+            animation: gradientFlow 12s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Стеклянная карточка */
+        .glass-card {
+            max-width: 650px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(12px);
+            border-radius: 48px;
+            padding: 50px 30px;
+            text-align: center;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.4);
+            transition: transform 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .glass-card:hover {
+            transform: scale(1.02);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Иконка (строительные леса) */
+        .construction-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: bounce 2s infinite ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: 600;
+            color: #5e2a3e;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 5px rgba(255, 255, 255, 0.5);
+        }
+
+        .message {
+            font-size: 20px;
+            font-weight: 500;
+            color: #7a4b5c;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        /* Кнопка назад */
+        .btn-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #b15e7e;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(177, 94, 126, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-home:hover {
+            background: #8f4a66;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(177, 94, 126, 0.4);
+        }
+
+        /* Ссылки соцсетей (опционально) */
+        .social-links {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .social-links a {
+            color: #5e2a3e;
+            font-size: 28px;
+            transition: 0.2s;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        /* Адаптивность */
+        @media (max-width: 550px) {
+            .glass-card {
+                padding: 35px 20px;
+            }
+            h1 {
+                font-size: 38px;
+            }
+            .message {
+                font-size: 18px;
+            }
+            .construction-icon {
+                font-size: 60px;
+            }
+            .btn-home {
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="glass-card">
+    <div class="construction-icon">🛠️✨</div>
+    <h1>Страница в разработке</h1>
+    
+    <a href="index.html" class="btn-home">
+        ← На главную
+    </a>
+
+    <!-- Дополнительные контакты на случай, если нужно срочно записаться -->
+    <div class="social-links">
+        <a href="https://t.me/hahahustla" target="_blank" rel="noopener noreferrer" aria-label="Telegram"> <img src="img/icons/tg.svg" alt="Страница в разработке" width="48" height="48"></a>
+        <a href="https://clc.li/ITWuT" target="_blank" rel="noopener noreferrer" aria-label="Max"> <img src="img/icons/MAX-48x48.png" alt="Иконка MAX" width="48" height="48" alt="Написать разработчику"></a>
+    </div>
+</div>
+
+</body>
+</html>
