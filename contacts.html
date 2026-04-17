@@ -5,94 +5,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Контакты и адрес | Косметологическая клиника</title>
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- ШАПКА -->
-    <div class="header">
-        <div class="container">
-            <a href="index.html" class="logo">Кабинет косметологии <br> <span style="font-weight: 400; font-size: 0.9em;">by Boiko Olesia</span></a>
-            <div class="burger" id="burgerBtn"><span></span><span></span><span></span></div>
-            <div class="nav" id="navMenu">
-                <a href="index.html">Главная</a>
-                <a href="services.html">Услуги</a>
-                <a href="contacts.html">• Контакты</a>
-                <a href="licenses.html">Лицензии</a>
-                <a href="about.html">О нас</a>
+<!-- ШАПКА -->
+<div class="header">
+    <div class="container">
+        <a href="index.html" class="logo">Кабинет косметологии <span style="font-weight: 600;">by Boiko Olesia</span></a>
+        <div class="burger" id="burgerBtn">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="nav" id="navMenu">
+            <a href="changelog.html">Что нового?</a>
+            <a href="index.html">Главная</a>
+            <a href="services.html">Услуги</a>
+            <a href="contacts.html">Контакты</a>
+            <a href="licenses.html">Лицензии</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">О нас</a>
+                <div class="dropdown-content">
+                    <a href="about.html">О клинике</a>
+                    <a href="doctors.html">Наши врачи</a>
+                    <a href="reviews.html">Отзывы</a>
+                    <a href="vacancies.html">Вакансии</a>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
-    <main>
-        <div class="container">
-            <h1 class="page-title">Контакты и адрес</h1>
+<main>
+    <div class="container">
+        <h1 class="page-title">Контакты и адрес</h1>
 
-            <!-- Карточки мессенджеров -->
-            <div class="contacts-grid">
-                <div class="contact-card">
-                    <div class="contact-icon"><img src="img/tg.svg" alt="Telegram" width="50" height="50"></div>
-                    <h3>Telegram</h3>
-                    <a href="https://t.me/hahahustla" target="_blank">Написать в Telegram</a>
+        <!-- Карточки мессенджеров -->
+        <div class="contacts-grid">
+            <div class="contact-card">
+                <div class="contact-icon"><img src="img/tg.svg" alt="Telegram" width="50" height="50"></div>
+                <h3>Telegram</h3>
+                <a href="https://t.me/hahahustla" target="_blank">Написать в Telegram <br>
+                (Нет оф. ссылки)</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <a href="https://max.ru" target="_blank" rel="noopener noreferrer">
+                        <img src="img/max.svg" alt="MAX" width="50" height="50">
+                    </a>
                 </div>
-                <div class="contact-card">
-                    <div class="contact-icon"><a href="https://max.ru" target="_blank" rel="noopener noreferrer">
-    <img src="img/max.svg" alt="MAX" width="50" height="50">
-</a></div>
-                    <h3>Max</h3>
-                    <a href="https://clc.li/ITWuT" target="_blank">Написать в Max</a>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon"><img src="img/vk.png" alt="VK" width="50" height="50"></div>
-                    <h3>ВКонтакте</h3>
-                    <a href="https://vk.me/id525556390" target="_blank">Написать в VK</a>
-                </div>
+                <h3>Max</h3>
+                <a href="https://max.ru/u/f9LHodD0cOJSkMXj2feWy6RqnzSMRJdvZdUlApJw-C4mv7-7rQPWX-Zjlkc" target="_blank">Написать в Max</a>
             </div>
-
-            <!-- Адрес и карта -->
-            <div class="address-detail">
-                <p><strong>📍 Новосибирск, ул. Ленина, 25</strong></p>
-                <p>Вход со двора, 2 этаж, домофон 25Б</p>
-                <p>🕒 Ежедневно с 10:00 до 21:00</p>
-            </div>
-
-            <div class="map-container">
-                <!-- Яндекс.Карта с меткой в центре Новосибирска (координаты: 82.9204, 55.0302) -->
-                <iframe src="https://yandex.ru/map-widget/v1/?ll=82.9204,55.0302&z=16&pt=82.9204,55.0302,flag" allowfullscreen></iframe>
-            </div>
-
-            <!-- Как добраться -->
-            <div class="directions">
-                <h3>Как добраться</h3>
-                <ul>
-                    <li><strong>Метро:</strong> станция "Площадь Ленина", выход к универмагу, далее пешком 5 минут.</li>
-                    <li><strong>Автобусы/троллейбусы:</strong> остановка "Центральный парк" (маршруты 1, 5, 12, 21).</li>
-                    <li><strong>На автомобиле:</strong> парковка во дворе, въезд с ул. Ленина (шлагбаум).</li>
-                </ul>
-            </div>
-
-            <div style="text-align: center;">
-                <a href="https://t.me/hahahustla" target="_blank" class="btn-telegram">✈️ Записаться в Telegram</a>
+            <div class="contact-card">
+                <div class="contact-icon"><img src="img/vk.png" alt="VK" width="50" height="50"></div>
+                <h3>ВКонтакте</h3>
+                <a href="https://vk.me/id525556390" target="_blank">Написать в VK<br>
+                (Нет оф. ссылки)</a>
             </div>
         </div>
-    </main>
 
-    <!-- ПОДВАЛ -->
-    <div class="footer container">
-        <p>© 2026 Косметологическая клиника — Новосибирск</p>
-        <p style="font-size: 12px; margin-top: 8px;">*Имеются противопоказания, необходима консультация специалиста</p>
-        <p>Дизайн и разработка: Royskey</p>
+        <!-- Адрес и карта -->
+        <div class="address-detail">
+            <p><strong>📍 Новосибирск, ул. Ленина, 3</strong></p>
+            <p>Вход со двора, 3 этаж, офис 335</p>
+        </div>
+
+                <!-- Часы работы -->
+        <div class="work-hours">
+            <h3>🕒 Режим работы</h3>
+            <table class="work-table">
+                <tr>
+                    <td>Понедельник – Пятница</td>
+                    <td>9:00 – 22:00</td>
+                </tr>
+                <tr>
+                    <td>Суббота</td>
+                    <td>Выходной</td>
+                </tr>
+                <tr>
+                    <td>Воскресенье</td>
+                    <td>9:00 – 22:00</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="map-container">
+            <iframe src="https://yandex.ru/map-widget/v1/?ll=82.917065,55.029534&z=17&pt=82.917065,55.029534,flag" allowfullscreen></iframe>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="https://qform.link/form_qC2CbaSYQ5xmWngBVQt9mA2mxAP6-j2U" target="_blank" class="btn-telegram">Записаться</a>
+        </div>
     </div>
+</main>
 
-    <!-- ВОДЯНОЙ ЗНАК -->
-    <div style="position: fixed; bottom: 20px; right: 20px; font-size: 22px; font-weight: 500; color: rgba(0,0,0,0.15); background: transparent; padding: 10px; z-index: 1000; font-family: 'Montserrat', sans-serif; letter-spacing: 1px;">
-        Дизайн и разработка: Royskey
-    </div>
+<!-- ПОДВАЛ -->
+<div class="footer container">
+    <p>© 2026 Косметологическая клиника — Новосибирск</p>
+    <p style="font-size: 12px; margin-top: 8px;">*Имеются противопоказания, необходима консультация специалиста</p>
+    <a href="https://max.ru/u/f9LHodD0cOLWiEgRhCEgfaOuINjwMWbU_dWpgs8yVqMPhD2Jj-6M0Y_9y_U" target="_blank" rel="noopener noreferrer">Написать разработчику</a><br>
+    <p><a href="privacy.html" style="color: #8A8A8A; text-decoration: underline;">Политика конфиденциальности</a></p>
+    <p>Дизайн и разработка: Royskey</p>
+</div>
 
-    <script src="main.js" defer></script>
-    
+<!-- ВОДЯНОЙ ЗНАК -->
+<div style="position: fixed; bottom: 20px; right: 20px; font-size: 22px; font-weight: 500; color: rgba(0,0,0,0.15); background: transparent; padding: 10px; z-index: 1000; font-family: 'Montserrat', sans-serif; letter-spacing: 1px;">
+    Дизайн и разработка: Royskey
+</div>
+
+<script src="main.js" defer></script>
+
+<!-- Cookie-баннер -->
+<div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #2E2E2E; color: white; padding: 15px 20px; text-align: center; z-index: 1000; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; font-size: 14px;">
+    <span>Мы используем файлы cookie для улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с <a href="privacy.html" style="color: #C7A07A; text-decoration: underline;">политикой конфиденциальности</a>.</span>
+    <button id="accept-cookies" style="background: #C7A07A; border: none; color: white; padding: 8px 25px; border-radius: 30px; cursor: pointer; font-weight: 600;">Принять</button>
+</div>
+
 </body>
-
 </html>

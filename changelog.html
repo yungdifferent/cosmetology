@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Что нового | Косметологическая клиника</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Что нового | Кабинет косметологии by Boiko Olesia</title>
     <style>
         * {
             margin: 0;
@@ -13,290 +12,205 @@
         }
 
         body {
-            min-height: 100vh;
-            background: linear-gradient(145deg, #fff5f9 0%, #ffe4ef 100%);
+            background-color: #FDFCFA;
             font-family: 'Montserrat', sans-serif;
-            color: #4a2c38;
+            color: #2E2E2E;
+            line-height: 1.5;
             padding: 40px 20px;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .changelog-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(12px);
-            border-radius: 48px;
-            padding: 40px 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(255, 255, 255, 0.6);
-            transition: transform 0.2s;
-        }
-
-        .changelog-card:hover {
-            transform: scale(1.01);
-        }
-
-        .header-icon {
-            text-align: center;
-            font-size: 60px;
-            margin-bottom: 15px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-
         h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            font-weight: 600;
-            text-align: center;
-            color: #000000;
-            margin-bottom: 10px;
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 8px;
         }
 
         .sub {
-            text-align: center;
-            font-size: 16px;
-            color: #434343;
-            margin-bottom: 40px;
-            border-bottom: 1px dashed #000000;
-            display: inline-block;
-            width: auto;
-            margin-left: auto;
-            margin-right: auto;
-            padding-bottom: 8px;
+            color: #6C6C6C;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #E9E4DD;
         }
 
-        .changelog-list {
+        .developer-link {
+            margin-bottom: 20px;
+        }
+
+        .developer-link a {
+            color: #C7A07A;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .last-update {
+            font-size: 13px;
+            color: #8A8A8A;
+            margin-bottom: 30px;
+        }
+
+        /* Карточки изменений */
+        .changes-grid {
             display: flex;
             flex-direction: column;
             gap: 24px;
-            margin: 30px 0 20px;
+            margin-bottom: 40px;
         }
 
-        .changelog-item {
-            background: rgba(255, 248, 250, 0.8);
-            border-radius: 28px;
+        .change-card {
+            background: #FFFFFF;
+            border-radius: 20px;
             padding: 20px 25px;
-            transition: all 0.2s;
-            border-left: 5px solid #adadad;
+            border: 1px solid #F0EDE8;
         }
 
-        .changelog-item:hover {
-            background: rgba(255, 255, 255, 0.95);
-            transform: translateX(5px);
-        }
-
-        .date {
-            font-size: 14px;
-            font-weight: 600;
-            color: #000000;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
+        .change-header {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #F0EDE8;
         }
 
-        .date::before {
-            content: "📅";
-            font-size: 14px;
+        .change-icon {
+            font-size: 28px;
         }
 
         .change-title {
             font-size: 20px;
             font-weight: 600;
-            color: #000000;
-            margin-bottom: 12px;
+            color: #1A1A1A;
         }
 
         .change-list {
             list-style: none;
-            padding-left: 0;
+            padding-left: 40px;
         }
 
         .change-list li {
-            margin-bottom: 10px;
-            padding-left: 24px;
+            font-size: 14px;
+            color: #5A5A5A;
+            margin-bottom: 8px;
             position: relative;
-            font-size: 15px;
-            line-height: 1.45;
-            color: #000000;
         }
 
         .change-list li::before {
-            content: "✨";
+            content: "—";
             position: absolute;
-            left: 0;
-            top: 0;
+            left: -20px;
+            color: #C7A07A;
+        }
+
+        .stats {
+            background: #F5F2EF;
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stats h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .stats-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .stat-item {
+            font-size: 13px;
+        }
+
+        .stat-number {
+            font-weight: 700;
+            color: #C7A07A;
+            margin-right: 5px;
+            font-size: 18px;
         }
 
         .back-home {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #c48aa6;
-            color: white;
-            padding: 12px 28px;
-            border-radius: 40px;
+            display: inline-block;
+            color: #C7A07A;
             text-decoration: none;
-            font-weight: 500;
-            margin-top: 35px;
-            transition: all 0.2s;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        hr {
             border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .back-home:hover {
-            background: #a86c8a;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 18px rgba(164, 90, 120, 0.2);
-        }
-
-        .footer-note {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 12px;
-            color: #c29aae;
-        }
-
-        @media (max-width: 550px) {
-            .changelog-card {
-                padding: 25px 18px;
-            }
-            h1 {
-                font-size: 32px;
-            }
-            .change-title {
-                font-size: 18px;
-            }
-            .changelog-item {
-                padding: 15px 18px;
-            }
+            border-top: 1px solid #E9E4DD;
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
-
 <div class="container">
-    <div class="changelog-card">
-        <div class="header-icon">🌸✨</div>
-        <h1>Что изменилось?</h1>
-        <div style="text-align: center;">
-            <div class="sub">Актуальные обновления сайта</div>
+    <h1>Что нового?</h1>
+    <div class="sub">Обновления сайта</div>
+
+    <div class="developer-link">
+        ✉️ <a href="https://max.ru/u/f9LHodD0cOLWiEgRhCEgfaOuINjwMWbU_dWpgs8yVqMPhD2Jj-6M0Y_9y_U" target="_blank">Написать разработчику</a>
+    </div>
+
+    <div class="last-update">
+        📅 Обновлено: <strong>17 апреля 2026</strong>
+    </div>
+
+    <div class="changes-grid">
+        <!-- Внешние изменения (видно пользователю) -->
+        <div class="change-card">
+            <div class="change-header">
+                <span class="change-icon">👁️</span>
+                <div class="change-title">Что изменилось на виду</div>
+            </div>
+            <ul class="change-list">
+                <li>Добавлен новый раздел меню «Отзывы»</li>
+                <li>Починили выпадающее меню «О нас» — теперь оно работает на всех страницах</li>
+                <li>Страница «Отзывы» теперь открывается из меню</li>
+                <li>Страница «Что нового?» — вы сейчас на ней</li>
+                <li>Исправлены ссылки, которые вели не туда</li>
+            </ul>
         </div>
 
-        <div class="changelog-list">
-            <!-- 14 апреля 2026 -->
-            <div class="changelog-item">
-                <div class="change-title">Контакты и мессенджеры</div>
-                <ul class="change-list">
-                    <li>Добавлены реальные иконки Telegram, Max, VK</li>
-                    <li>Обновлены ссылки: Telegram, Max, VK</li>
-                    <li>Карточки контактов выровнены по высоте — аккуратный вид</li>
-                </ul>
+        <!-- Внутренние изменения (технические) -->
+        <div class="change-card">
+            <div class="change-header">
+                <span class="change-icon">⚙️</span>
+                <div class="change-title">Технические доработки</div>
             </div>
-
-            <!-- 13 апреля 2026 -->
-            <div class="changelog-item">
-                <div class="change-title">Локальные изображения</div>
-                <ul class="change-list">
-                    <li>Галерея интерьеров теперь использует локальные фото</li>
-                    <li>Карточки популярных услуг переведены на локальные изображения</li>
-                    <li>Ускорена загрузка страницы за счёт отказа от внешних картинок</li>
-                </ul>
-            </div>
-
-            <!-- 12 апреля 2026 -->
-            <div class="changelog-item">
-                <div class="change-title">Навигация и новые разделы</div>
-                <ul class="change-list">
-                    <li>Добавлены страницы «Лицензии» и «О нас» (в разработке)</li>
-                    <li>В шапку добавлены ссылки на эти разделы</li>
-                    <li>Страница «Что нового?» теперь доступна из главного меню</li>
-                    <li>Удалена отдельная страница «Адрес» — информация перенесена на страницу контактов</li>
-                </ul>
-            </div>
-
-            <!-- 10 апреля 2026 -->
-            <div class="changelog-item">
-                <div class="change-title">Дизайн и структура</div>
-                <ul class="change-list">
-                    <li>Разделение стилей и разметки — код стал чище</li>
-                    <li>Созданы временные страницы для будущих разделов</li>
-                    <li>Исправлено отображение бургер-меню на мобильных устройствах</li>
-                </ul>
-            </div>
-
-            <!-- Скоро -->
-            <div class="changelog-item">
-                <div class="date">В планах</div>
-                <div class="change-title">⚡ Ближайшие обновления</div>
-                <ul class="change-list">
-                    <li>Наполнение страниц «Лицензии» и «О нас» реальным содержанием</li>
-                    <li>Добавление фото процедур «До/После»</li>
-                    <li>Онлайн-запись через формы заявок</li>
-                </ul>
-            </div>
-            
-            <strong>От заказчика требуется:</strong>
-
-            <li>      1. Общая информация о компании
-
-                    Название клиники. Сейчас везде «Косметологическая клиника» или «Косметология». Уже сейчас необходимо реальное.
-
-                    Слоган.
-
-                    Логотип (файл в PNG/SVG, на прозрачном и на непрозначном фоне).
-
-                    Юридическая информация (Матвей, разберись с этим).</li>
-
-            <li>        2. Контакты
-
-                    Телефон.
-
-                    Email (если нужен).
-
-                    Адрес.
-
-                    Ссылки на соцсети и мессенджеры.
-
-                    Часы работы (сейчас «Ежедневно с 10 до 21» – подтвердить).</li>
-
-            <li>        3. Услуги и цены (Прайслист, рписание,в общем всё, что нужно)</li>
-
-            <li>        4. Фотографии</li>
-
-            <li>        5. Тексты для страниц
-                                    
-                    «О нас» – история клиники, миссия, достижения, образование врачей, опыт работы.
-
-                    «Лицензии» – скан-копии или список лицензий (номер, кем выдана, срок действия).
-
-                    Текст для подвала – ссылка на политику конфиденциальности (Матвей разберется).</li>
-
-            <li>        6. Специальные пожелания и функционал
-
-                    Нужна ли темная тема и прочие штуки?</li>
-            <strong>Чем быстрее будет предоставлена эта информация – тем быстрее будет готов сайт</strong>
-
-        </div>
-
-        <div style="text-align: center;">
-            <a href="index.html" class="back-home">← На главную</a>
-        </div>
-        <div class="footer-note">
-            Разработка не останавливается
+            <ul class="change-list">
+                <li>Поправлены пути к стилям — сайт стал грузиться без ошибок</li>
+                <li>Удалены дублирующиеся скрипты (ускорение загрузки)</li>
+                <li>Исправлена структура страницы «Лицензии»</li>
+                <li>Оптимизирована анимация — работает плавнее</li>
+                <li>Все файлы приведены к единой структуре (меньше путаницы)</li>
+            </ul>
         </div>
     </div>
-</div>
 
+    <!-- Цифры -->
+    <div class="stats">
+        <h3>📊 В цифрах</h3>
+        <div class="stats-grid">
+            <div class="stat-item"><span class="stat-number">10</span> страниц в работе</div>
+            <div class="stat-item"><span class="stat-number">5</span> внешних улучшений</div>
+            <div class="stat-item"><span class="stat-number">5</span> технических исправлений</div>
+            <div class="stat-item"><span class="stat-number">~30</span> ссылок проверено</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <a href="index.html" class="back-home">← На главную</a>
+</div>
 </body>
 </html>
